@@ -4,494 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MIS 7375 | Nikki Safarova</title>
-  <meta name="description" content="MIS 7375 Transaction Processing Systems — class project homepage for Nikki Safarova." />
-
   <style>
-    :root{
-      --bg: #0b1020;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.06);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --line: rgba(255,255,255,.12);
-      --accent: #7c5cff;
-      --accent2: #2de2e6;
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
-      --radius: 16px;
-      --radius2: 22px;
-      --max: 1040px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: var(--sans);
-      color: var(--text);
-      background:
-        radial-gradient(900px 600px at 10% 10%, rgba(124,92,255,.35), transparent 55%),
-        radial-gradient(900px 600px at 95% 25%, rgba(45,226,230,.25), transparent 55%),
-        radial-gradient(700px 500px at 50% 95%, rgba(255,255,255,.08), transparent 55%),
-        var(--bg);
-      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:#0b1020;
+      color:#ffffff;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 64px}
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(11,16,32,.55);
-      border-bottom:1px solid var(--line);
-    }
-    .topbar-inner{
-      max-width:var(--max);
+    .wrap{
+      max-width:900px;
       margin:0 auto;
-      padding:12px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:.2px;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(124,92,255,.18);
-    }
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-    }
-    .navlink{
-      padding:8px 12px;
-      border:1px solid transparent;
-      border-radius:999px;
-      color:var(--muted);
-      transition:.2s;
-      font-size:14px;
-    }
-    .navlink:hover{
-      border-color: var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-    }
-    .hero{
-      padding:26px 0 14px;
-      display:grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr}
-      nav{justify-content:flex-start}
+      padding:28px 18px 60px;
     }
     .card{
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      padding:18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: 18px;
     }
-    .title{
-      font-size:34px;
-      line-height:1.08;
-      margin:0 0 10px;
-      letter-spacing:-.4px;
+    h1{
+      margin:0 0 6px;
+      font-size:28px;
+      letter-spacing:-.2px;
     }
-    .subtitle{
+    .sub{
       margin:0;
-      color: var(--muted);
-      font-size:16px;
-      line-height:1.55;
+      color: rgba(255,255,255,.72);
+      line-height:1.5;
     }
-    .pillrow{
+    .grid{
       margin-top:14px;
-      display:flex; flex-wrap:wrap; gap:10px;
-    }
-    .pill{
-      font-size:13px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255,255,255,.05);
-    }
-    .meta{
-      display:grid;
-      gap:10px;
-    }
-    .meta .row{
-      display:flex; justify-content:space-between; gap:12px;
-      padding:10px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      font-size:14px;
-    }
-    .meta .k{color:var(--muted)}
-    .meta .v{font-weight:600}
-    section{margin-top:18px}
-    .section-title{
-      font-size:18px;
-      margin:0 0 10px;
-      letter-spacing:.2px;
-    }
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    @media (max-width: 880px){
-      .grid2{grid-template-columns:1fr}
-    }
-    .small{
-      color:var(--muted);
-      margin:8px 0 0;
-      line-height:1.6;
-    }
-    .hwgrid{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap:12px;
     }
-    @media (max-width: 980px){
-      .hwgrid{grid-template-columns: repeat(2, 1fr)}
+    @media (max-width: 900px){
+      .grid{grid-template-columns: repeat(2, 1fr);}
     }
     @media (max-width: 520px){
-      .hwgrid{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr;}
     }
-    .tile{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    a.tile{
+      display:block;
       padding:14px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
-      transition:.2s;
-      min-height:120px;
+      color:#fff;
+      text-decoration:none;
+      transition:.15s ease;
     }
-    .tile:hover{
+    a.tile:hover{
       transform: translateY(-2px);
-      background: rgba(255,255,255,.07);
-      border-color: rgba(124,92,255,.35);
-    }
-    .tile .top{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.20);
     }
     .tag{
-      font-family: var(--mono);
+      display:inline-block;
+      margin-top:10px;
       font-size:12px;
-      padding:6px 8px;
+      color: rgba(255,255,255,.72);
+      padding:5px 8px;
+      border:1px solid rgba(255,255,255,.12);
       border-radius:999px;
-      border:1px solid var(--line);
-      color: var(--muted);
-    }
-    .tile h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:.2px;
-    }
-    .tile p{
-      margin:0;
-      color: var(--muted);
-      line-height:1.45;
-      font-size:14px;
-    }
-    .tablewrap{
-      overflow:auto;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-    }
-    table{
-      width:100%;
-      border-collapse: collapse;
-      min-width: 720px;
-    }
-    th, td{
-      padding:12px 12px;
-      border-bottom:1px solid var(--line);
-      vertical-align: top;
-      font-size:14px;
-    }
-    th{
-      text-align:left;
-      color: rgba(255,255,255,.85);
-      background: rgba(255,255,255,.04);
-      font-weight:700;
-    }
-    td{ color: var(--muted); }
-    .week{
-      font-family: var(--mono);
-      color: rgba(255,255,255,.85);
-      font-weight:700;
-      width: 110px;
     }
     footer{
-      margin-top:22px;
+      margin-top:16px;
       color: rgba(255,255,255,.55);
       font-size:13px;
-      padding-top:12px;
-      border-top:1px solid var(--line);
-    }
-    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 12px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.92);
-      font-size:14px;
-      transition:.2s;
-    }
-    .btn:hover{
-      border-color: rgba(45,226,230,.35);
-      background: rgba(255,255,255,.08);
-      transform: translateY(-1px);
-    }
-    .btn.primary{
-      border-color: rgba(124,92,255,.45);
-      background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(45,226,230,.12));
-    }
-    pre{
-      margin:10px 0 0;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.18);
-      overflow:auto;
-      color: rgba(255,255,255,.82);
     }
   </style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>MIS 7375</span>
-      </div>
-
-      <nav aria-label="Primary">
-        <a class="navlink" href="#about">About</a>
-        <a class="navlink" href="#class">Class</a>
-        <a class="navlink" href="#syllabus">Syllabus</a>
-        <a class="navlink" href="#homeworks">Homeworks</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="wrap">
-    <div class="hero">
-      <div class="card">
-        <h1 class="title">Hi, I’m <span style="color:#fff">Nikki Safarova</span> 👋</h1>
-        <p class="subtitle">
-          Welcome to my course project homepage for <strong>MIS 7375 Transaction Processing Systems</strong>.
-          Here you can find information about me, a syllabus overview, and links to my homework folders.
-        </p>
+    <div class="card">
+      <h1>Nikki Safarova</h1>
+      <p class="sub">MIS 7375 — Transaction Processing Systems</p>
 
-        <div class="pillrow">
-          <span class="pill">Course: MIS 7375</span>
-          <span class="pill">Topic: Transaction Processing Systems</span>
-          <span class="pill">Spring 2026</span>
-        </div>
-
-        <div class="btnrow">
-          <a class="btn primary" href="#homeworks">Go to Homeworks</a>
-          <a class="btn" href="#syllabus">View Syllabus</a>
-        </div>
-      </div>
-
-      <aside class="card">
-        <h2 class="section-title" style="margin-top:0">Quick Info</h2>
-        <div class="meta">
-          <div class="row">
-            <div class="k">Course</div>
-            <div class="v">MIS 7375</div>
-          </div>
-          <div class="row">
-            <div class="k">Title</div>
-            <div class="v">Transaction Processing Systems</div>
-          </div>
-          <div class="row">
-            <div class="k">Student</div>
-            <div class="v">Nikki Safarova</div>
-          </div>
-          <div class="row">
-            <div class="k">Email</div>
-            <div class="v">your.email@uh.edu</div>
-          </div>
-        </div>
-        <p class="small">
-          If this site is hosted on GitHub Pages, keep your homework folders named
-          <span style="font-family:var(--mono)">hw1</span> …
-          <span style="font-family:var(--mono)">hw4</span> so the links work.
-        </p>
-      </aside>
-    </div>
-
-    <section id="about" class="card">
-      <h2 class="section-title">About Me</h2>
-      <p class="small" style="margin-top:0">
-        I’m Nikki Safarova. In this course, I’m focusing on understanding how transaction processing systems work
-        and how reliability, consistency, and performance are maintained in real-world systems.
-      </p>
-      <p class="small">
-        I’ll use this website to organize my class work, track homework submissions, and keep everything easy to find.
-        Over the semester, I plan to expand each homework folder with clear write-ups and supporting files.
-      </p>
-    </section>
-
-    <section id="class" class="grid2">
-      <div class="card">
-        <h2 class="section-title">Class Information</h2>
-        <p class="small" style="margin-top:0">
-          <strong>Course:</strong> MIS 7375 — Transaction Processing Systems
-        </p>
-        <p class="small">
-          <strong>What I’ll practice:</strong> transaction concepts, concurrency, recovery, and how systems maintain correctness under load.
-        </p>
-        <p class="small">
-          <strong>Site purpose:</strong> a clean hub for syllabus + homework submissions.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2 class="section-title">Project Checklist</h2>
-        <p class="small" style="margin-top:0">
-          (Update this as you complete work.)
-        </p>
-        <div class="meta">
-          <div class="row"><div class="k">Homepage</div><div class="v">✅</div></div>
-          <div class="row"><div class="k">Syllabus section</div><div class="v">✅</div></div>
-          <div class="row"><div class="k">Homework folders</div><div class="v">✅</div></div>
-          <div class="row"><div class="k">GitHub Pages deployed</div><div class="v">⬜</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="syllabus" class="card">
-      <h2 class="section-title">Syllabus Overview</h2>
-      <p class="small" style="margin-top:0">
-        Replace the table below with your real syllabus topics/dates if you want it to match the official schedule.
-      </p>
-
-      <div class="tablewrap" role="region" aria-label="Syllabus table" tabindex="0">
-        <table>
-          <thead>
-            <tr>
-              <th class="week">Week</th>
-              <th>Topic</th>
-              <th>Notes</th>
-              <th>Due</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="week">Week 1</td>
-              <td>Course intro + transactions basics</td>
-              <td>ACID, transaction lifecycle</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td class="week">Week 2</td>
-              <td>Concurrency control</td>
-              <td>Locks, isolation levels</td>
-              <td>HW1</td>
-            </tr>
-            <tr>
-              <td class="week">Week 3</td>
-              <td>Recovery</td>
-              <td>Logging, checkpoints</td>
-              <td>HW2</td>
-            </tr>
-            <tr>
-              <td class="week">Week 4</td>
-              <td>Distributed transactions</td>
-              <td>2PC, consistency</td>
-              <td>HW3</td>
-            </tr>
-            <tr>
-              <td class="week">Week 5</td>
-              <td>Performance + review</td>
-              <td>Throughput, latency</td>
-              <td>HW4</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="small">
-        Optional: add a syllabus PDF to the repo (if allowed) and link it here:
-        <span style="font-family:var(--mono)">&lt;a href="syllabus.pdf"&gt;Download Syllabus&lt;/a&gt;</span>
-      </p>
-    </section>
-
-    <section id="homeworks" class="card">
-      <h2 class="section-title">Homework Folders</h2>
-      <p class="small" style="margin-top:0">
-        Put an <span style="font-family:var(--mono)">index.html</span> inside each folder so it opens as a page.
-      </p>
-
-      <div class="hwgrid" aria-label="Homework links">
+      <div class="grid" aria-label="Homework folders">
         <a class="tile" href="./hw1/">
-          <div class="top">
-            <h3>Homework 1</h3>
-            <span class="tag">/hw1/</span>
-          </div>
-          <p>Topic/summary for HW1.</p>
+          <strong>Homework 1</strong>
+          <div class="tag">/hw1/</div>
         </a>
-
         <a class="tile" href="./hw2/">
-          <div class="top">
-            <h3>Homework 2</h3>
-            <span class="tag">/hw2/</span>
-          </div>
-          <p>Topic/summary for HW2.</p>
+          <strong>Homework 2</strong>
+          <div class="tag">/hw2/</div>
         </a>
-
         <a class="tile" href="./hw3/">
-          <div class="top">
-            <h3>Homework 3</h3>
-            <span class="tag">/hw3/</span>
-          </div>
-          <p>Topic/summary for HW3.</p>
+          <strong>Homework 3</strong>
+          <div class="tag">/hw3/</div>
         </a>
-
         <a class="tile" href="./hw4/">
-          <div class="top">
-            <h3>Homework 4</h3>
-            <span class="tag">/hw4/</span>
-          </div>
-          <p>Topic/summary for HW4.</p>
+          <strong>Homework 4</strong>
+          <div class="tag">/hw4/</div>
         </a>
       </div>
 
-      <p class="small">Suggested repo structure:</p>
-      <pre>
-/ (repo root)
-  index.html
-  /hw1
-    index.html
-  /hw2
-    index.html
-  /hw3
-    index.html
-  /hw4
-    index.html
-      </pre>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> Nikki Safarova — MIS 7375 Transaction Processing Systems.</div>
-    </footer>
+      <footer>© <span id="year"></span> Nikki Safarova</footer>
+    </div>
   </main>
 
   <script>
