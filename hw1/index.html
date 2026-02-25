@@ -1,48 +1,394 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<title>JavaScript Form Validation using a sample registration form</title>
-<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
-<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />
-<link rel='stylesheet' href='js-form-validation.css' type='text/css' />
-<script src="sample-registration-form-validation.js"></script>
-</head>
-<body onload="document.registration.userid.focus();">
-<h1>Registration Form</h1>
-Use tab keys to move from one input field to the next.
-<form name='registration' onSubmit="return formValidation();">
-<ul>
-<li><label for="userid">User id:</label></li>
-<li><input type="text" name="userid" size="12" /></li>
-<li><label for="passid">Password:</label></li>
-<li><input type="password" name="passid" size="12" /></li>
-<li><label for="username">Name:</label></li>
-<li><input type="text" name="username" size="50" /></li>
-<li><label for="address">Address:</label></li>
-<li><input type="text" name="address" size="50" /></li>
-<li><label for="country">Country:</label></li>
-<li><select name="country">
-<option selected="" value="Default">(Please select a country)</option>
-<option value="AF">Australia</option>
-<option value="AL">Canada</option>
-<option value="DZ">India</option>
-<option value="AS">Russia</option>
-<option value="AD">USA</option>
-</select></li>
-<li><label for="zip">ZIP Code:</label></li>
-<li><input type="text" name="zip" /></li>
-<li><label for="email">Email:</label></li>
-<li><input type="text" name="email" size="50" /></li>
-<li><label id="gender">Sex:</label></li>
-<li><input type="radio" name="msex" value="Male" /><span>Male</span></li>
-<li><input type="radio" name="fsex" value="Female" /><span>Female</span></li>
-<li><label>Language:</label></li>
-<li><input type="checkbox" name="en" value="en" checked /><span>English</span></li>
-<li><input type="checkbox" name="nonen" value="noen" /><span>Non English</span></li>
-<li><label for="desc">About:</label></li>
-<li><textarea name="desc" id="desc"></textarea></li>
-<li><input type="submit" name="submit" value="Submit" /></li>
-</ul>
-</form>
-</body>
+<!doctype html>
+<!--
+    Name: Nikki Safarova
+    File: index.html
+    Date Created: 2026-02-21
+    Date Updated: 2026-02-24
+    Purpose: MIS 7375 Homework 1 - MediForm Patient Registration Form HTML
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MediForm Patient Registration</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER SECTION -->
+    <div id="header">
+      <table width="100%">
+        <tr>
+          <td><img src="logo.png" alt="MediForm Logo" width="150" /></td>
+          <td align="right">
+            Today's Date: <span id="today">MM/DD/YYYY</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- BODY SECTION -->
+    <div id="body">
+      <h2>MediForm Patient Registration Form</h2>
+
+      <form action="thankyou.html">
+        <center>
+          <table width="800" cellpadding="10">
+            <tr>
+              <th colspan="3">Patient Information</th>
+            </tr>
+
+            <!-- NAME -->
+            <tr>
+              <td>
+                First Name<br />
+                <input
+                  type="text"
+                  name="firstname"
+                  maxlength="30"
+                  required
+                  placeholder="Enter first name"
+                />
+              </td>
+
+              <td width="120">
+                Middle Initial<br />
+                <input
+                  type="text"
+                  name="middleinit"
+                  maxlength="1"
+                  placeholder="M"
+                />
+              </td>
+
+              <td>
+                Last Name<br />
+                <input
+                  type="text"
+                  name="lastname"
+                  maxlength="30"
+                  required
+                  placeholder="Enter last name"
+                />
+              </td>
+            </tr>
+
+            <!-- Date of Birth and SSN -->
+            <tr>
+              <td colspan="2">
+                Date of Birth<br />
+                <input
+                  type="date"
+                  name="dob"
+                  placeholder="MM/DD/YYYY"
+                  maxlength="10"
+                  required
+                />
+              </td>
+
+              <td width="50%">
+                Social Security Number<br />
+                <input
+                  type="password"
+                  name="ssn"
+                  placeholder="***-**-****"
+                  maxlength="11"
+                  required
+                />
+              </td>
+            </tr>
+
+            <!-- ADDRESS -->
+            <tr>
+              <td colspan="2">
+                Address Line 1<br />
+                <input
+                  type="text"
+                  name="addr1"
+                  maxlength="30"
+                  placeholder="1234 Main St"
+                  required
+                />
+              </td>
+
+              <td>
+                Address Line 2 (Optional)<br />
+                <input
+                  type="text"
+                  name="addr2"
+                  maxlength="30"
+                  placeholder="Apt, Suite, etc"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                City<br />
+                <input
+                  type="text"
+                  name="city"
+                  maxlength="30"
+                  placeholder="Houston"
+                  required
+                />
+              </td>
+
+              <td>
+                State<br />
+                <select name="state" required>
+                  <option value="">Select</option>
+                  <option>AK</option>
+                  <option>AL</option>
+                  <option>AR</option>
+                  <option>AZ</option>
+                  <option>CA</option>
+                  <option>CO</option>
+                  <option>CT</option>
+                  <option>DC</option>
+                  <option>DE</option>
+                  <option>FL</option>
+                  <option>GA</option>
+                  <option>HI</option>
+                  <option>IA</option>
+                  <option>ID</option>
+                  <option>IL</option>
+                  <option>IN</option>
+                  <option>KS</option>
+                  <option>KY</option>
+                  <option>LA</option>
+                  <option>MA</option>
+                  <option>MD</option>
+                  <option>ME</option>
+                  <option>MI</option>
+                  <option>MN</option>
+                  <option>MO</option>
+                  <option>MS</option>
+                  <option>MT</option>
+                  <option>NC</option>
+                  <option>ND</option>
+                  <option>NE</option>
+                  <option>NH</option>
+                  <option>NJ</option>
+                  <option>NM</option>
+                  <option>NV</option>
+                  <option>NY</option>
+                  <option>OH</option>
+                  <option>OK</option>
+                  <option>OR</option>
+                  <option>PA</option>
+                  <option>PR</option>
+                  <option>RI</option>
+                  <option>SC</option>
+                  <option>SD</option>
+                  <option>TN</option>
+                  <option>TX</option>
+                  <option>UT</option>
+                  <option>VA</option>
+                  <option>VT</option>
+                  <option>WA</option>
+                  <option>WI</option>
+                  <option>WV</option>
+                  <option>WY</option>
+                </select>
+              </td>
+
+              <td>
+                Zip Code<br />
+                <input
+                  type="text"
+                  name="zip"
+                  maxlength="10"
+                  placeholder="77002"
+                  required
+                />
+              </td>
+            </tr>
+
+            <!-- CONTACT INFORMATION -->
+            <tr>
+              <td>
+                Email<br />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="name@domain.com"
+                  required
+                />
+              </td>
+
+              <td>
+                Phone<br />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="7135551212"
+                  required
+                />
+              </td>
+
+              <td>
+                User ID<br />
+                <input
+                  type="text"
+                  name="userid"
+                  maxlength="20"
+                  placeholder="Create user ID"
+                  required
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                Password<br />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter password"
+                  required
+                />
+              </td>
+
+              <td>
+                Re-enter Password<br />
+                <input
+                  type="password"
+                  name="password2"
+                  placeholder="Re-enter password"
+                  required
+                />
+              </td>
+            </tr>
+
+            <!-- TEXT AREA -->
+            <tr>
+              <td colspan="3">
+                What symptoms are you having today?<br />
+                <textarea
+                  name="symptoms"
+                  rows="5"
+                  cols="50"
+                  required
+                  placeholder="Example: headache for 2 days, mild fever..."
+                ></textarea>
+              </td>
+            </tr>
+
+            <!-- RADIO BUTTONS -->
+            <tr>
+              <td colspan="3">
+                What is your gender?<br /><br />
+                <input type="radio" name="gender" value="Male" required /> Male
+                <input type="radio" name="gender" value="Female" /> Female
+                <input type="radio" name="gender" value="Other" /> Other
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="3">
+                Have you been vaccinated?<br /><br />
+                <input type="radio" name="vaccinated" value="Yes" required />
+                Yes <input type="radio" name="vaccinated" value="No" /> No
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="3">
+                Do you have insurance?<br /><br />
+                <input type="radio" name="insurance" value="Yes" required /> Yes
+                <input type="radio" name="insurance" value="No" /> No
+              </td>
+            </tr>
+
+            <!-- SLIDER -->
+            <tr>
+              <td colspan="2">
+                On a scale of 1-10, how is your health today?<br />
+                <input
+                  type="range"
+                  id="health_score"
+                  min="1"
+                  max="10"
+                  value="5"
+                />
+                <span id="scoreValue">5</span>
+              </td>
+            </tr>
+
+            <!-- CHECKBOX -->
+            <tr>
+              <td colspan="3">
+                Have you had any of the below? Check all that apply:<br /><br />
+                <input type="checkbox" name="history" value="High BP" /> High
+                Blood Pressure
+                <input type="checkbox" name="history" value="Heart disease" />
+                Heart disease
+                <input type="checkbox" name="history" value="Covid" /> Covid-19
+                <input type="checkbox" name="history" value="Diabetes" />
+                Diabetes
+                <input type="checkbox" name="history" value="Flu" /> Flu-shot
+              </td>
+            </tr>
+
+            <!-- BUTTONS -->
+            <tr>
+              <td colspan="3" align="right">
+                <input type="reset" value="Clear" />
+                <input type="submit" value="Submit" />
+              </td>
+            </tr>
+          </table>
+        </center>
+      </form>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <div id="footer">
+      <table width="100%" cellpadding="10">
+        <tr>
+          <!-- Logo and Company Address-->
+          <td width="12%">
+            <img src="logo.png" alt="MediForm Logo" width="150" />
+          </td>
+
+          <td width="30%">
+            <b>MediForm Medical Clinic</b><br /><br />
+            2450 Medical Plaza Drive<br />
+            Houston TX, 77030
+          </td>
+
+          <!-- Social Links -->
+          <td width="30%">
+            <b>Follow Us</b><br /><br />
+            <a href="#">Facebook</a><br />
+            <a href="#">Twitter</a><br />
+            <a href="#">Instagram</a>
+          </td>
+
+          <!-- Contact Button -->
+          <td width="12%" align="right">
+            <b>Need Help?</b><br /><br />
+            <button type="button">Contact Us</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Javascript for Today's date and Slider -->
+    <script>
+      document.getElementById("today").innerHTML =
+        new Date().toLocaleDateString("en-US");
+
+      var slider = document.getElementById("health_score");
+      var output = document.getElementById("scoreValue");
+      output.innerHTML = slider.value;
+
+      slider.oninput = function () {
+        output.innerHTML = this.value;
+      };
+    </script>
+  </body>
 </html>
