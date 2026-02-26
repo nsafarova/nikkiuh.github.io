@@ -3,7 +3,7 @@
     Name: Nikki Safarova
     File: index.html
     Date Created: 2026-02-21
-    Date Updated: 2026-02-24
+    Date Updated: 2026-02-25
     Purpose: MIS 7375 Homework 1 - MediForm Patient Registration Form HTML
 -->
 
@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <title>MediForm Patient Registration</title>
 
-    <!-- External CSS -->
+    <!-- External CSS Stylesheet-->
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -53,7 +53,7 @@
                 />
               </td>
 
-              <td width="120">
+              <td width="110">
                 Middle Initial<br />
                 <input
                   type="text"
@@ -75,21 +75,25 @@
               </td>
             </tr>
 
-            <!-- Date of Birth and SSN -->
+            <!-- GENDER  -->
+            <tr>
+              <td colspan="3">
+                Patient's Gender<br /><br />
+                <input type="radio" name="gender" value="Male" required /> Male
+                <input type="radio" name="gender" value="Female" /> Female
+                <input type="radio" name="gender" value="Other" /> Other
+              </td>
+            </tr>
+
+            <!-- Date of Birth + SSN -->
             <tr>
               <td colspan="2">
                 Date of Birth<br />
-                <input
-                  type="date"
-                  name="dob"
-                  placeholder="MM/DD/YYYY"
-                  maxlength="10"
-                  required
-                />
+                <input type="date" name="dob" required />
               </td>
 
-              <td width="50%">
-                Social Security Number<br />
+              <td>
+                SSN<br />
                 <input
                   type="password"
                   name="ssn"
@@ -100,7 +104,11 @@
               </td>
             </tr>
 
-            <!-- ADDRESS -->
+            <tr>
+              <th colspan="3">Patient Contact Information</th>
+            </tr>
+
+            <!-- ADDRESS and CONTACT INFORMATION -->
             <tr>
               <td colspan="2">
                 Address Line 1<br />
@@ -114,7 +122,7 @@
               </td>
 
               <td>
-                Address Line 2 (Optional)<br />
+                Address Line 2 (optional)<br />
                 <input
                   type="text"
                   name="addr2"
@@ -207,10 +215,9 @@
               </td>
             </tr>
 
-            <!-- CONTACT INFORMATION -->
             <tr>
-              <td>
-                Email<br />
+              <td colspan="2">
+                Email Address<br />
                 <input
                   type="email"
                   name="email"
@@ -220,7 +227,7 @@
               </td>
 
               <td>
-                Phone<br />
+                Phone Number<br />
                 <input
                   type="text"
                   name="phone"
@@ -228,85 +235,39 @@
                   required
                 />
               </td>
-
-              <td>
-                User ID<br />
-                <input
-                  type="text"
-                  name="userid"
-                  maxlength="20"
-                  placeholder="Create user ID"
-                  required
-                />
-              </td>
             </tr>
+
+            <tr>
+              <th colspan="3">Reason for Your Visit</th>
+            </tr>
+
+            <!-- CHECKBOXES -->
 
             <tr>
               <td colspan="2">
-                Password<br />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter password"
-                  required
-                />
+                Please select the reason(s) for your visit:<br /><br />
+                <input type="checkbox" name="history" value="Fever" />
+                Fever<br />
+                <input type="checkbox" name="history" value="Asthma" /> Heart
+                Disease<br />
+                <input type="checkbox" name="history" value="Vaccinations" />
+                Vaccinations<br />
+                <input type="checkbox" name="history" value="Checkup" />
+                Checkup<br />
+                <input type="checkbox" name="history" value="Allergy" /> Allergy
               </td>
 
               <td>
-                Re-enter Password<br />
-                <input
-                  type="password"
-                  name="password2"
-                  placeholder="Re-enter password"
-                  required
-                />
-              </td>
-            </tr>
-
-            <!-- TEXT AREA -->
-            <tr>
-              <td colspan="3">
-                What symptoms are you having today?<br />
-                <textarea
-                  name="symptoms"
-                  rows="5"
-                  cols="50"
-                  required
-                  placeholder="Example: headache for 2 days, mild fever..."
-                ></textarea>
-              </td>
-            </tr>
-
-            <!-- RADIO BUTTONS -->
-            <tr>
-              <td colspan="3">
-                What is your gender?<br /><br />
-                <input type="radio" name="gender" value="Male" required /> Male
-                <input type="radio" name="gender" value="Female" /> Female
-                <input type="radio" name="gender" value="Other" /> Other
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="3">
-                Have you been vaccinated?<br /><br />
-                <input type="radio" name="vaccinated" value="Yes" required />
-                Yes <input type="radio" name="vaccinated" value="No" /> No
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="3">
-                Do you have insurance?<br /><br />
-                <input type="radio" name="insurance" value="Yes" required /> Yes
-                <input type="radio" name="insurance" value="No" /> No
+                <!-- TEXTAREA -->
+                If selected any above, explain:<br />
+                <textarea name="symptoms" rows="4" cols="20"></textarea>
               </td>
             </tr>
 
             <!-- SLIDER -->
             <tr>
-              <td colspan="2">
-                On a scale of 1-10, how is your health today?<br />
+              <td colspan="3">
+                Urgency of Appointment (On a scale of 1-10)<br />
                 <input
                   type="range"
                   id="health_score"
@@ -318,26 +279,41 @@
               </td>
             </tr>
 
-            <!-- CHECKBOX -->
+            <!-- CREATE ACCOUNT -->
+            <tr>
+              <th colspan="3">Create Account</th>
+            </tr>
+
             <tr>
               <td colspan="3">
-                Have you had any of the below? Check all that apply:<br /><br />
-                <input type="checkbox" name="history" value="High BP" /> High
-                Blood Pressure
-                <input type="checkbox" name="history" value="Heart disease" />
-                Heart disease
-                <input type="checkbox" name="history" value="Covid" /> Covid-19
-                <input type="checkbox" name="history" value="Diabetes" />
-                Diabetes
-                <input type="checkbox" name="history" value="Flu" /> Flu-shot
+                Username<br />
+                <input
+                  type="text"
+                  name="userid"
+                  maxlength="20"
+                  placeholder="Create User ID"
+                  required
+                />
               </td>
             </tr>
 
-            <!-- BUTTONS -->
+            <tr>
+              <td colspan="2">
+                Password<br />
+                <input type="password" name="password" required />
+              </td>
+
+              <td>
+                Confirm Password<br />
+                <input type="password" name="password2" required />
+              </td>
+            </tr>
+
+            <!-- SUBMIT and RESET BUTTONS -->
             <tr>
               <td colspan="3" align="right">
-                <input type="reset" value="Clear" />
                 <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" />
               </td>
             </tr>
           </table>
@@ -383,7 +359,7 @@
         new Date().toLocaleDateString("en-US");
 
       var slider = document.getElementById("health_score");
-      var output = document.getElementById("scoreValue");
+      var output = document.getElementById("score-value");
       output.innerHTML = slider.value;
 
       slider.oninput = function () {

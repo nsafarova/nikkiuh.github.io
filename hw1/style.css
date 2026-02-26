@@ -126,7 +126,7 @@ input[type="range"] {
   accent-color: #2dd4bf;
 }
 
-#scoreValue {
+#score-value {
   background: #c9f1ee;
   border-radius: 10px;
   color: #0f6e8c;
